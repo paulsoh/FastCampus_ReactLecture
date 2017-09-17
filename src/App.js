@@ -4,6 +4,7 @@ import AppHeader from './AppHeader';
 import WordLists from './Containers/WordLists';
 import WordList from './Containers/WordList';
 import Quiz from './Containers/Quiz';
+import QuizSession from './Containers/QuizSession';
 
 class App extends Component {
   render() {
@@ -20,6 +21,9 @@ class App extends Component {
           </div>
         </div>
 
+        <div className="ui divider hidden"></div>
+        <div className="ui hidden divider"></div>
+        <QuizSession />
         <div className="ui divider hidden"></div>
         <div className="ui hidden divider"></div>
         <WordLists />
