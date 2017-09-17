@@ -1,7 +1,10 @@
 import React from 'react';
+import {
+  Link,
+} from 'react-router-dom';
 
 
-export default class WordLists extends React.Component {
+export default class Quiz extends React.Component {
   render() {
     return (
       <div className="ui container">
@@ -27,10 +30,12 @@ export default class WordLists extends React.Component {
                 1423 words
               </div>
             </div>
-            <div className="ui bottom attached button">
-              <i className="add icon"></i>
-              Take Quiz
-            </div>
+            <Link to="/quizes/gre">
+              <div className="ui bottom attached button">
+                <i className="add icon"></i>
+                Take Quiz
+              </div>
+            </Link>
           </div>
           <div className="card">
             <div className="content">

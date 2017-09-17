@@ -5,36 +5,38 @@ import WordLists from './Containers/WordLists';
 import WordList from './Containers/WordList';
 import Quiz from './Containers/Quiz';
 import QuizSession from './Containers/QuizSession';
+import {
+  BrowserRouter,
+  Route,
+  Link,
+} from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <div className="ui attached stackable menu">
-          <div className="ui container">
-            <a className="item">
-              <i className="home icon"></i> Word Lists
-            </a>
-            <a className="item">
-              <i className="tasks icon"></i> Quiz
-            </a>
+      <BrowserRouter>
+        <div>
+          <div className="ui attached stackable menu">
+            <div className="ui container">
+              <Link to="/word-lists" className="item">
+                <i className="home icon"></i> Word Lists
+              </Link>
+              <Link to="/quizes" className="item">
+                <i className="tasks icon"></i> Quiz
+              </Link>
+            </div>
           </div>
+
+          <div className="ui hidden divider"></div>
+          <div className="ui hidden divider"></div>
+
+          <Route exact path="/quizes" component={Quiz} />
+          <Route path="/quizes/:gre" component={QuizSession} />
+          <Route exact path="/word-lists" component={WordLists} />
+          <Route path="/word-lists/:gre" component={WordList} />
+
         </div>
-
-        <div className="ui divider hidden"></div>
-        <div className="ui hidden divider"></div>
-        <QuizSession />
-        <div className="ui divider hidden"></div>
-        <div className="ui hidden divider"></div>
-        <WordLists />
-        <div className="ui divider hidden"></div>
-        <div className="ui hidden divider"></div>
-        <WordList />
-        <div className="ui divider hidden"></div>
-        <div className="ui hidden divider"></div>
-        <Quiz />
-
-      </div>
+      </BrowserRouter>
     );
   }
 }
