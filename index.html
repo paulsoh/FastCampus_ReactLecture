@@ -12,8 +12,39 @@
     </h1>
     <div id="root"></div>
     <script type="text/babel">
+      class TitleComponent extends React.Component {
+        render() {
+          return (
+            <h1>
+              This is the Title component
+            </h1>
+          )
+        }
+      }
+
+      class DescriptionComponent extends React.Component {
+        render() {
+          return (
+            <p>
+              This is the Description
+            </p>
+          )
+        }
+      }
+
+      class Article extends React.Component {
+        render() {
+          return (
+            <div>
+              <TitleComponent />
+              <DescriptionComponent />
+            </div>
+          )
+        }
+      }
+
       ReactDOM.render(
-        <h1>Hello, world! This is from React</h1>,
+        <Article />,
         document.getElementById('root')
       );
     </script>
