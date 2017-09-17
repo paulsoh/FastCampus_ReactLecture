@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AppIntro from './AppIntro';
 import AppHeader from './AppHeader';
 import WordLists from './Containers/WordLists';
+import WordList from './Containers/WordList';
 
 class App extends Component {
   render() {
@@ -19,7 +20,11 @@ class App extends Component {
         </div>
 
         <div className="ui divider hidden"></div>
+        <div className="ui hidden divider"></div>
         <WordLists />
+        <div className="ui divider hidden"></div>
+        <div className="ui hidden divider"></div>
+        <WordList />
 
       </div>
     );
