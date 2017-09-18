@@ -16,10 +16,6 @@ import QuizComponent from './QuizComponent';
 class App extends Component {
   render() {
     return (
-      <QuizComponent />
-    )
-    /*
-    return (
       <BrowserRouter>
         <div>
           <div className="ui attached stackable menu">
@@ -44,7 +40,6 @@ class App extends Component {
         </div>
       </BrowserRouter>
     );
-    */
   }
 }
 
