@@ -10,9 +10,13 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
+// import Clock from './Clock';
 
 class App extends Component {
   render() {
+    // return (
+    //   <Clock />
+    // )
     return (
       <BrowserRouter>
         <div>

@@ -1,5 +1,64 @@
 import React from 'react'
 
+const wordList = [
+  {
+    word: 'precarious',
+    definition: 'adj. uncertain',
+    usage: 'The prime ministers precarious hold on power ended when she lost a vote of confidence in Parliament',
+  },
+  {
+    word: 'precarious',
+    definition: 'adj. uncertain',
+    usage: 'The prime ministers precarious hold on power ended when she lost a vote of confidence in Parliament',
+  },
+  {
+    word: 'precarious',
+    definition: 'adj. uncertain',
+    usage: 'The prime ministers precarious hold on power ended when she lost a vote of confidence in Parliament',
+  },
+  {
+    word: 'precarious',
+    definition: 'adj. uncertain',
+    usage: 'The prime ministers precarious hold on power ended when she lost a vote of confidence in Parliament',
+  },
+]
+class WordCard extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div className="item">
+      <div
+        className="content"
+      >
+        <a className="header">
+          {this.props.word}
+        </a>
+
+        <div className="meta">
+          <span className="cinema">
+            {this.props.definition}
+          </span>
+        </div>
+        <div className="description">
+          <p>
+            {this.props.usage}
+          </p>
+        </div>
+        <div className="extra">
+          <div className="ui label">Difficult</div>
+          <div className="ui label">
+            <i className="globe icon"></i>
+            Marked
+          </div>
+        </div>
+      </div>
+    </div>
+    )
+  }
+}
 
 export default class WordList extends React.Component {
   render() {
@@ -15,77 +74,15 @@ export default class WordList extends React.Component {
         <div className="ui hidden divider"></div>
 
         <div className="ui divided items">
-          <div className="item">
-            <div className="content">
-              <a className="header">
-                precarious
-              </a>
-              <div className="meta">
-                <span className="cinema">
-                  adj. uncertain
-                </span>
-              </div>
-              <div className="description">
-                <p>
-                  The prime minister's precarious hold on power ended when she lost a vote of confidence in Parliament
-                </p>
-              </div>
-              <div className="extra">
-                <div className="ui label">Difficult</div>
-                <div className="ui label">
-                  <i className="globe icon"></i>
-                  Marked
-                </div>
-              </div>
-            </div>
+          
+          {wordList.map((word) => (
+            <WordCard
+              word={word.word}
+              definition={word.definition}
+              usage={word.usage}
+            />
+          ))}
           </div>
-
-          <div className="item">
-            <div className="content">
-              <a className="header">
-                prattle
-              </a>
-              <div className="meta">
-                <span className="cinema">
-                  n. meaningless, foolish talk
-                </span>
-              </div>
-              <div className="description">
-                <p>
-                  The sociologist theorizes that what may seem like prattle often has an important social function.
-                </p>
-              </div>
-              <div className="extra">
-                <div className="ui label">Difficult</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="item">
-            <div className="content">
-              <a className="header">
-                purport
-              </a>
-              <div className="meta">
-                <span className="cinema">
-                  v. to profess; suppose; claim
-                </span>
-              </div>
-              <div className="description">
-                <p>
-                  The US is generally considered to be a secular society in which church and state are separate; however, religion plays a large role, since nearly everyone purports to believe in God and many people are members of churches.
-                </p>
-              </div>
-              <div className="extra">
-                <div className="ui label">Difficult</div>
-                <div className="ui label">
-                  <i className="globe icon"></i>
-                  Marked
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     );
   }
