@@ -12,31 +12,55 @@ import {
 } from 'react-router-dom';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPathName: '/',
+    }
+  }
+
+  componentDidMount = () => {
+    const currentPathName = window.location.pathname;
+    this.setState({
+      currentPathName: currentPathName,
+    })
+  }
+
+  goToPath = (pathname) => {
+    this.setState({
+      currentPathName: pathname,
+    })
+
+    window.location.pathname = pathname;
+  }
+
+
   render() {
+    let componentToRender;
+    if (this.state.currentPathName === '/word-list') {
+      componentToRender = <WordList />;
+    } else if (this.state.currentPathName === '/quizes') {
+      componentToRender = <QuizSession />;
+    }
+
     return (
-      <BrowserRouter>
-        <div>
-          <div className="ui attached stackable menu">
-            <div className="ui container">
-              <Link to="/word-lists" className="item">
-                <i className="home icon"></i> Word Lists
-              </Link>
-              <Link to="/quizes" className="item">
-                <i className="tasks icon"></i> Quiz
-              </Link>
-            </div>
+      <div>
+        <div className="ui attached stackable menu">
+          <div className="ui container">
+            <a onClick={() => this.goToPath('/word-list')} className="item">
+              <i className="home icon"></i> Word Lists
+            </a>
+            <a onClick={() => this.goToPath('/quizes')} className="item">
+              <i className="tasks icon"></i> Quiz
+            </a>
           </div>
-
-          <div className="ui hidden divider"></div>
-          <div className="ui hidden divider"></div>
-
-          <Route exact path="/quizes" component={Quiz} />
-          <Route path="/quizes/:gre" component={QuizSession} />
-          <Route exact path="/word-lists" component={WordLists} />
-          <Route path="/word-lists/:gre" component={WordList} />
-
         </div>
-      </BrowserRouter>
+
+        <div className="ui hidden divider"></div>
+        <div className="ui hidden divider"></div>
+
+        {componentToRender}
+      </div>
     );
   }
 }
