@@ -11,12 +11,14 @@ import {
   Link,
 } from 'react-router-dom';
 // import Clock from './Clock';
+import QuizComponent from './QuizComponent';
 
 class App extends Component {
   render() {
-    // return (
-    //   <Clock />
-    // )
+    return (
+      <QuizComponent />
+    )
+    /*
     return (
       <BrowserRouter>
         <div>
@@ -42,6 +44,7 @@ class App extends Component {
         </div>
       </BrowserRouter>
     );
+    */
   }
 }
 
