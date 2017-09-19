@@ -12,12 +12,16 @@ import {
 } from 'react-router-dom';
 // import Clock from './Clock';
 import QuizComponent from './QuizComponent';
+import Scoreboard from './Scoreboard';
 
 class App extends Component {
   render() {
     return (
-      <QuizComponent />
+      <Scoreboard />
     )
+    // return (
+    //   <QuizComponent />
+    // )
     /*
     return (
       <BrowserRouter>
