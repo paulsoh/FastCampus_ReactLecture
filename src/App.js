@@ -10,13 +10,54 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
-// import Clock from './Clock';
+import ClockPractice from './ClockPractice';
 import QuizComponent from './QuizComponent';
 
+
+class ScoreBoard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      teamAScore: 0,
+      teamBScore: 0,
+    }
+  }
+
+  render = () => {
+    return (
+      <div>
+        <div>
+          <h1>Team A</h1>
+          
+        </div>
+
+        <div>
+          <h1>Team B</h1>
+
+        </div>
+      </div>
+    )
+  }
+}
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value1: 'abc',
+      value2: 'def',
+    }
+  }
+
+  updateValue1 = () => {
+    this.setState({
+      value1: '123',
+    })
+  }
+
   render() {
     return (
-      <QuizComponent />
+      <ClockPractice />
     )
     /*
     return (

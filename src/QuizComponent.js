@@ -7,6 +7,10 @@ export default class QuizComponent extends React.Component {
     console.log("Inside constructor");
   }
 
+  componentWillMount = () => {
+    console.log("I will soon mount");
+  }
+
   componentDidMount = () => {
     console.log("I have just mounted");
   }
