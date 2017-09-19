@@ -12,7 +12,7 @@ class TeamScore extends React.Component {
       }}
     >
       <h1>
-        Team A
+        {this.props.label}
       </h1>
       <h2
         style={{
@@ -79,41 +79,18 @@ export default class Scoreboard extends React.Component {
         }}
       >
         <TeamScore
+          label="TeamA"
           score={this.state.teamA}
           increaseScoreHandler={() => this.increaseTeamScore('teamA')}
+          decreaseScoreHandler={() => this.decreaseTeamScore('teamA')}
+        />
+        <TeamScore
+          label="TeamB"
+          score={this.state.teamB}
+          increaseScoreHandler={() => this.increaseTeamScore('teamB')}
+          decreaseScoreHandler={() => this.decreaseTeamScore('teamB')}
         />
 
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <h1>
-            Team B
-          </h1>
-          <h2
-            style={{
-              color: this.state.teamA > this.state.teamB ? 'blue' : 'red',
-            }}
-          >
-            {this.state.teamB}
-          </h2>
-          <div>
-            <button
-              onClick={() => this.increaseTeamScore('teamB')}
-            >
-              + 1 Point
-            </button>
-            <button
-              onClick={() => this.decreaseTeamScore('teamB')}
-            >
-              - 1 Point
-            </button>
-          </div>
-        </div>
       </div>
     );
   }
