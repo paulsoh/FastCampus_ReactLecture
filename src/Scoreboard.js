@@ -1,5 +1,42 @@
 import React from 'react'
 
+class TeamScore extends React.Component {
+  render = () => {
+    return (
+      <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <h1>
+        Team A
+      </h1>
+      <h2
+        style={{
+          color: 'red',
+        }}
+      >
+        {this.props.score}
+      </h2>
+      <div>
+        <button
+          onClick={this.props.increaseScoreHandler}
+        >
+          + 1 Point
+        </button>
+        <button
+          onClick={() => {}}
+        >
+          - 1 Point
+        </button>
+      </div>
+    </div>
+    )
+  }
+}
 
 export default class Scoreboard extends React.Component {
   constructor(props) {
@@ -41,37 +78,11 @@ export default class Scoreboard extends React.Component {
           alignItems: 'center',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <h1>
-            Team A
-          </h1>
-          <h2
-            style={{
-              color: 'red',
-            }}
-          >
-            {this.state.teamA}
-          </h2>
-          <div>
-            <button
-              onClick={() => this.increaseTeamScore('teamA')}
-            >
-              + 1 Point
-            </button>
-            <button
-              onClick={() => this.decreaseTeamScore('teamA')}
-            >
-              - 1 Point
-            </button>
-          </div>
-        </div>
+        <TeamScore
+          score={this.state.teamA}
+          increaseScoreHandler={() => this.increaseTeamScore('teamA')}
+        />
+
         <div
           style={{
             display: 'flex',
